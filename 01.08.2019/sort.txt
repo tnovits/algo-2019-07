@@ -1,0 +1,66 @@
+
+<input> 3 2 3 1
+read 1
+load 1
+
+JGTZ sort
+halt
+
+sort:
+	load 1
+	store 2
+
+	reading:
+		add =4
+		read *0
+		load 2
+		sub =1
+		store 2
+		JGTZ reading
+
+	load 1
+	
+	loopI:
+		add =4
+		store 2
+		sub =1
+		store 3
+			loopK:
+				load *2
+				sub *3
+				JGTZ checkK
+				load *3
+				store 4
+				load *2
+				store *3
+				load 4
+				store *2
+				
+				checkK:
+				load 3
+				sub =1
+				store 3
+				sub =4
+				JGTZ loopK
+	load 2
+	sub =5
+	store 2
+	JGTZ loopI
+
+	load =5
+	store 2
+	
+	showing:
+		write *2
+		load 2
+		add =1
+		store 2
+		load 1
+		sub =1
+		store 1
+		JGTZ showing	
+halt			
+				
+		
+
+		

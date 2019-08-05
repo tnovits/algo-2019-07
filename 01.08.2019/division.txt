@@ -1,0 +1,42 @@
+
+<input> 10 2
+load =0
+store 3
+read 1
+read 2
+load 1
+store 4
+
+JGTZ if1
+halt
+
+if1:
+load =0
+store 4
+	
+loop:
+	load 3
+	add =1
+	store 3
+	load 1
+	sub 2
+	store 1
+	JGTZ loop
+	
+jz resault
+	
+	load 1
+	jz resault
+	load 3
+	sub =1
+	store 3
+	load 1
+	JGTZ resault
+	add 2
+	store 4
+
+resault:
+	write 3
+	write 4
+	halt
+ 
