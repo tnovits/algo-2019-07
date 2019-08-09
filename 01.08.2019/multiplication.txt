@@ -2,14 +2,19 @@
 <input> 10 2
 read 1
 read 2
-load =0
-store 3      ; resault = 0
+load = 0
+store 3
 load 1       
 sub 2
 JGTZ loop1   ; if( r1 - r2 > 0 )
+load 1
+store 3
 load 2
-sub 1
-JGTZ loop2   ; if( r2 - r1 > 0 )
+store 1
+load 3
+store 2
+load = 0
+store 3
 
 loop1:       ; do{
     load 3   ;    resault += r1;
@@ -19,17 +24,6 @@ loop1:       ; do{
     sub =1
     store 2
 JGTZ loop1
-write 3
-halt
-
-loop2:        ; do{
-    load 3    ;    resault += r2;
-    add 2     ;    r1--;
-    store 3   ; while( r1 > 0 );
-    load 1
-    sub =1
-    store 1
-JGTZ loop2
 write 3
 halt
 

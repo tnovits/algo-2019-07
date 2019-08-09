@@ -2,14 +2,14 @@
 <input> 3 2 3 1
 read 1
 load 1
+store 2
 
 JGTZ sort
-halt
+store 5
+
+JZ show
 
 sort:
-	load 1
-	store 2
-
 	reading:
 		add =4
 		read *0
@@ -18,6 +18,10 @@ sort:
 		store 2
 		JGTZ reading
 
+	load 1
+	sub =1
+	jz show
+	
 	load 1
 	
 	loopI:
@@ -47,6 +51,7 @@ sort:
 	store 2
 	JGTZ loopI
 
+show:
 	load =5
 	store 2
 	
